@@ -9,13 +9,14 @@
 </style>
 
 <div class="example-wrapper">
-    <p>Para hacer esta parte, debes de crear minimo un usuario y un post en la BD de phpmyadmin</p>
-    {{dump(post)}} {# busca -> http://localhost:8000/post/1 #}
+    {{dump(posts)}} {# Nos devolverá todos los posts #} 
+    
+    {{dump(post)}} {# Nos devolverá uno o varios posts específicos #}
+
+    {{dump(singlePost)}} {# Nos devolverá un post #}
     
     <br><br>
     <h4>busca: Métodos “mágicos de Symfony”</h4>
     <a href='https://docs.google.com/document/d/1wiN6fMfyYln-xzbGV3_h_b3S91wmB7M0GqGiAaZ6rYs/edit?usp=sharing'>Mirar teoria</a>
-    
-    {# Si te fijas también verás el dumb si pulsas sobre el icono que parece un mira de shooter de la barra de abajo en la página #}
 </div>
 {% endblock %}

@@ -16,6 +16,24 @@ class PostRepository extends ServiceEntityRepository
         parent::__construct($registry, Post::class);
     }
 
+    public function findPost($id){
+        return $this->getEntityManager()
+            ->createQuery('
+                SELECT post.id, post.title, post.type
+                FROM App\Entity\Post post    
+                WHERE post.id = :id
+            ')
+            ->setParameter('id', $id) /* Ponemos :id y luego le asignamos este valor a una variable, para no hacerlo de forma directa, ya que de hacerlo de esta forma, nos podrian hacer inyecciones SQL */
+            ->getResult(); 
+    }
+
+    /* ¿Cómo funciona el mapeo? ':'
+
+            Es como una etiqueta. Lo que pongas después de los dos puntos en la consulta debe coincidir con el primer nombre que pongas en setParameter 
+    */
+
+
+
     //    /**
     //     * @return Post[] Returns an array of Post objects
     //     */

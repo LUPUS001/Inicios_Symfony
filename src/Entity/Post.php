@@ -3,10 +3,12 @@
 namespace App\Entity;
 
 use App\Repository\PostRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Date;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 class Post
@@ -47,8 +49,14 @@ class Post
     #[ORM\OneToMany(targetEntity: Interaction::class, mappedBy: 'post', orphanRemoval: true)]
     private Collection $interactions;
 
-    public function __construct()
+    public function __construct($title = null, $type = null, $description = null, $file = null, $url = null)
     {
+        $this->title = $title;
+        $this->type = $type;
+        $this->description = $description;
+        $this->file = $file;
+        $this->creation_date = new DateTime(); // no lo pasamos como parámetro del constructor, porque ya lo inicializamos aquí
+        $this->url = $url;
         $this->interactions = new ArrayCollection();
     }
 
