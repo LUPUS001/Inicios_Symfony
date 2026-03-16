@@ -57,7 +57,7 @@ class Post
         $this->file = $file;
         $this->creation_date = new DateTime(); // no lo pasamos como parámetro del constructor, porque ya lo inicializamos aquí
         $this->url = $url;
-        $this->interactions = new ArrayCollection();
+        $this->interactions = new ArrayCollection(); 
     }
 
     public function getId(): ?int
