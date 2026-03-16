@@ -9,15 +9,13 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ quien_eres.ioel }}! ✅</h1>
-    <h2>mi edad es {{edad}}</h2>
-
-    <h2></h2>
-    {{ dump(numeros) }}
-    {{ dump(comidas) }}
-
+    <p>Para hacer esta parte, debes de crear minimo un usuario y un post en la BD de phpmyadmin</p>
+    {{dump(post)}} {# busca -> http://localhost:8000/post/1 #}
+    
     <br><br>
-    <p>En caso de que tengas dudas:</p>
+    <h4>busca: Métodos “mágicos de Symfony”</h4>
     <a href='https://docs.google.com/document/d/1wiN6fMfyYln-xzbGV3_h_b3S91wmB7M0GqGiAaZ6rYs/edit?usp=sharing'>Mirar teoria</a>
+    
+    {# Si te fijas también verás el dumb si pulsas sobre el icono que parece un mira de shooter de la barra de abajo en la página #}
 </div>
 {% endblock %}
