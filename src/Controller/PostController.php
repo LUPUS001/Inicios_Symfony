@@ -19,19 +19,15 @@ final class PostController extends AbstractController
     #[Route('/post/{id}', name: 'app_post')]
     public function index($id): Response
     {
-        // Nos busca y renderiza/pinta todos los posts
-        $posts = $this->em->getRepository(Post::class)->findAll();
+        // Pueden parecer lo mismo a simple vista, pero...
 
-        // Nos busca y renderiza uno o varios posts según el criterio/los parámetros que pongamos
-        $post = $this->em->getRepository(Post::class)->findBy(['type' => 'guepardo']);
+        $post = $this->em->getRepository(Post::class)->find($id); //este traerá el post entero 
 
-        // Nos busca y renderiza SOLO uno (no devolverá un array)
-        $singlePost = $this->em->getRepository(Post::class)->findOneBy(['id' => 1]);
+        $custom_post = $this->em->getRepository(Post::class)->findPost($id); //este traera el post con los filtros que le hemos configurado
 
         return $this->render('post/index.html.twig', [ 
-            'posts' => $posts,
             'post' => $post,
-            'singlePost' => $singlePost,
+            'custom_post' => $custom_post,
         ]);
     }
 }
