@@ -12,7 +12,13 @@ final class PostController extends AbstractController
     public function index(): Response
     {
         return $this->render('post/index.html.twig', [
-            'controller_name' => 'Buenas soy Tonio',
+            'quien_eres' => [
+                'antonio' => 'Hola soy Antonio',
+                'julio' => 'Hola soy Julio',
+                'aaron' => 'Hola soy Aarón',
+                'alexia' => 'Hola soy Alexia',
+                'ioel' => 'Hola soy Ioel',
+            ],
             'edad' => 10110,
             'numeros' => [[1,2,3,4,5],[1,2,3,4]],
             'comidas' => [
